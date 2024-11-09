@@ -1,0 +1,523 @@
+
+
+Microchip MPLAB XC8 Assembler V2.45 build 20230818022343 
+                                                                                               Thu May 23 12:08:18 2024
+
+Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1 
+     1                           	processor	16F676
+     2                           	pagewidth 120
+     3                           	opt	flic
+     4                           	psect	cinit,global,class=CODE,merge=1,delta=2
+     5                           	psect	cstackCOMMON,global,class=COMMON,space=1,delta=1,noexec
+     6                           	psect	cstackBANK0,global,class=BANK0,space=1,delta=1,noexec
+     7                           	psect	maintext,global,class=CODE,split=1,delta=2
+     8                           	psect	text1,local,class=CODE,merge=1,delta=2
+     9                           	psect	text2,local,class=CODE,merge=1,delta=2
+    10                           	psect	config,global,abs,ovrld,class=CONFIG,space=4,delta=2,noexec
+    11                           	dabs	1,0x5E,2
+    12     0000                     
+    13                           ; Generated 12/10/2023 GMT
+    14                           ; 
+    15                           ; Copyright © 2023, Microchip Technology Inc. and its subsidiaries ("Microchip")
+    16                           ; All rights reserved.
+    17                           ; 
+    18                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
+      +                          ip").
+    19                           ; 
+    20                           ; Redistribution and use in source and binary forms, with or without modification, are
+    21                           ; permitted provided that the following conditions are met:
+    22                           ; 
+    23                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
+      +                          t of
+    24                           ;        conditions and the following disclaimer.
+    25                           ; 
+    26                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
+      +                          list
+    27                           ;        of conditions and the following disclaimer in the documentation and/or other
+    28                           ;        materials provided with the distribution. Publication is not required when
+    29                           ;        this file is used in an embedded application.
+    30                           ; 
+    31                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
+      +                          is
+    32                           ;        software without specific prior written permission.
+    33                           ; 
+    34                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+    35                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
+      +                          OR
+    36                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
+      +                          T,
+    37                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
+    38                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
+    39                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
+      +                          RICT
+    40                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
+      +                          SE OF
+    41                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    42                           ; 
+    43                           ; 
+    44                           ; Code-generator required, PIC16F676 Definitions
+    45                           ; 
+    46                           ; SFR Addresses
+    47     0000                     	;# 
+    48     0001                     	;# 
+    49     0002                     	;# 
+    50     0003                     	;# 
+    51     0004                     	;# 
+    52     0005                     	;# 
+    53     0007                     	;# 
+    54     000A                     	;# 
+    55     000B                     	;# 
+    56     000C                     	;# 
+    57     000E                     	;# 
+    58     000E                     	;# 
+    59     000F                     	;# 
+    60     0010                     	;# 
+    61     0019                     	;# 
+    62     001E                     	;# 
+    63     001F                     	;# 
+    64     0081                     	;# 
+    65     0085                     	;# 
+    66     0087                     	;# 
+    67     008C                     	;# 
+    68     008E                     	;# 
+    69     0090                     	;# 
+    70     0091                     	;# 
+    71     0095                     	;# 
+    72     0095                     	;# 
+    73     0096                     	;# 
+    74     0096                     	;# 
+    75     0099                     	;# 
+    76     009A                     	;# 
+    77     009A                     	;# 
+    78     009B                     	;# 
+    79     009C                     	;# 
+    80     009D                     	;# 
+    81     009E                     	;# 
+    82     009F                     	;# 
+    83     0000                     	;# 
+    84     0001                     	;# 
+    85     0002                     	;# 
+    86     0003                     	;# 
+    87     0004                     	;# 
+    88     0005                     	;# 
+    89     0007                     	;# 
+    90     000A                     	;# 
+    91     000B                     	;# 
+    92     000C                     	;# 
+    93     000E                     	;# 
+    94     000E                     	;# 
+    95     000F                     	;# 
+    96     0010                     	;# 
+    97     0019                     	;# 
+    98     001E                     	;# 
+    99     001F                     	;# 
+   100     0081                     	;# 
+   101     0085                     	;# 
+   102     0087                     	;# 
+   103     008C                     	;# 
+   104     008E                     	;# 
+   105     0090                     	;# 
+   106     0091                     	;# 
+   107     0095                     	;# 
+   108     0095                     	;# 
+   109     0096                     	;# 
+   110     0096                     	;# 
+   111     0099                     	;# 
+   112     009A                     	;# 
+   113     009A                     	;# 
+   114     009B                     	;# 
+   115     009C                     	;# 
+   116     009D                     	;# 
+   117     009E                     	;# 
+   118     009F                     	;# 
+   119     0005                     _PORTAbits	set	5
+   120     0007                     _PORTC	set	7
+   121     0005                     _PORTA	set	5
+   122     001E                     _ADRESH	set	30
+   123     001F                     _ADCON0bits	set	31
+   124     001F                     _ADCON0	set	31
+   125     0087                     _TRISC	set	135
+   126     0085                     _TRISA	set	133
+   127     009E                     _ADRESL	set	158
+   128     009F                     _ADCON1	set	159
+   129     0091                     _ANSEL	set	145
+   130                           
+   131                           	psect	cinit
+   132     03FD                     start_initialization:	
+   133                           ; #config settings
+   134                           
+   135     03FD                     __initialization:
+   136     03FD                     end_of_initialization:	
+   137                           ;End of C runtime variable initialization code
+   138                           
+   139     03FD                     __end_of__initialization:
+   140     03FD  0183               	clrf	3
+   141     03FE  2BD8               	ljmp	_main	;jump to C main() function
+   142                           
+   143                           	psect	cstackCOMMON
+   144     0000                     __pcstackCOMMON:
+   145     0000                     ??_init_ADC:
+   146                           
+   147                           	psect	cstackBANK0
+   148     0020                     __pcstackBANK0:	
+   149                           ; 1 bytes @ 0x0
+   150                           
+   151     0020                     ?_init_ADC:
+   152     0020                     ?_main:	
+   153                           ; 1 bytes @ 0x0
+   154                           
+   155     0020                     ?_read_ADC:	
+   156                           ; 1 bytes @ 0x0
+   157                           
+   158                           
+   159                           ; 2 bytes @ 0x0
+   160     0020                     	ds	2
+   161     0022                     ??_read_ADC:
+   162                           
+   163                           ; 1 bytes @ 0x2
+   164     0022                     	ds	1
+   165     0023                     ??_main:
+   166                           
+   167                           ; 1 bytes @ 0x3
+   168     0023                     	ds	2
+   169     0025                     main@sensorValue:
+   170                           
+   171                           ; 2 bytes @ 0x5
+   172     0025                     	ds	2
+   173                           
+   174                           	psect	maintext
+   175     03D8                     __pmaintext:	
+   176 ;;
+   177 ;;Main: autosize = 0, tempsize = 2, incstack = 0, save=0
+   178 ;;
+   179 ;; *************** function _main *****************
+   180 ;; Defined at:
+   181 ;;		line 35 in file "PIC16F676MOTOROPEN.c"
+   182 ;; Parameters:    Size  Location     Type
+   183 ;;		None
+   184 ;; Auto vars:     Size  Location     Type
+   185 ;;  sensorValue     2    5[BANK0 ] unsigned int 
+   186 ;; Return value:  Size  Location     Type
+   187 ;;                  1    wreg      void 
+   188 ;; Registers used:
+   189 ;;		wreg, status,2, status,0, pclath, cstack
+   190 ;; Tracked objects:
+   191 ;;		On entry : B00/0
+   192 ;;		On exit  : 0/0
+   193 ;;		Unchanged: 0/0
+   194 ;; Data sizes:     COMMON   BANK0
+   195 ;;      Params:         0       0
+   196 ;;      Locals:         0       2
+   197 ;;      Temps:          0       2
+   198 ;;      Totals:         0       4
+   199 ;;Total ram usage:        4 bytes
+   200 ;; Hardware stack levels required when called: 1
+   201 ;; This function calls:
+   202 ;;		_init_ADC
+   203 ;;		_read_ADC
+   204 ;; This function is called by:
+   205 ;;		Startup code after reset
+   206 ;; This function uses a non-reentrant model
+   207 ;;
+   208                           
+   209     03D8                     _main:	
+   210                           ;psect for function _main
+   211                           
+   212     03D8                     l625:	
+   213                           ;incstack = 0
+   214                           ; Regs used in _main: [wreg+status,2+status,0+pclath+cstack]
+   215                           
+   216     03D8  3001               	movlw	1
+   217     03D9  1683               	bsf	3,5	;RP0=1, select bank1
+   218     03DA  0085               	movwf	5	;volatile
+   219     03DB                     l627:
+   220     03DB  0187               	clrf	7	;volatile
+   221     03DC                     l629:
+   222     03DC  1283               	bcf	3,5	;RP0=0, select bank0
+   223     03DD  0185               	clrf	5	;volatile
+   224     03DE                     l631:
+   225     03DE  0187               	clrf	7	;volatile
+   226     03DF                     l633:
+   227     03DF  23BC               	fcall	_init_ADC
+   228     03E0                     l635:
+   229     03E0  23C6               	fcall	_read_ADC
+   230     03E1  1283               	bcf	3,5	;RP0=0, select bank0
+   231     03E2  0821               	movf	?_read_ADC+1,w
+   232     03E3  00A6               	movwf	main@sensorValue+1
+   233     03E4  0820               	movf	?_read_ADC,w
+   234     03E5  00A5               	movwf	main@sensorValue
+   235     03E6                     l637:
+   236     03E6  3002               	movlw	2
+   237     03E7  0226               	subwf	main@sensorValue+1,w
+   238     03E8  3001               	movlw	1
+   239     03E9  1903               	skipnz
+   240     03EA  0225               	subwf	main@sensorValue,w
+   241     03EB  1C03               	skipc
+   242     03EC  2BEE               	goto	u41
+   243     03ED  2BEF               	goto	u40
+   244     03EE                     u41:
+   245     03EE  2BF1               	goto	l39
+   246     03EF                     u40:
+   247     03EF                     l639:
+   248     03EF  1405               	bsf	5,0	;volatile
+   249     03F0  2BF2               	goto	l641
+   250     03F1                     l39:
+   251     03F1  1005               	bcf	5,0	;volatile
+   252     03F2                     l641:
+   253     03F2  3082               	movlw	130
+   254     03F3  00A4               	movwf	??_main+1
+   255     03F4  30DD               	movlw	221
+   256     03F5  00A3               	movwf	??_main
+   257     03F6                     u57:
+   258     03F6  0BA3               	decfsz	??_main,f
+   259     03F7  2BF6               	goto	u57
+   260     03F8  0BA4               	decfsz	??_main+1,f
+   261     03F9  2BF6               	goto	u57
+   262     03FA  2BFB               	nop2
+   263     03FB  2BE0               	goto	l635
+   264     03FC  2800               	ljmp	start
+   265     03FD                     __end_of_main:
+   266                           
+   267                           	psect	text1
+   268     03C6                     __ptext1:	
+   269 ;; *************** function _read_ADC *****************
+   270 ;; Defined at:
+   271 ;;		line 28 in file "PIC16F676MOTOROPEN.c"
+   272 ;; Parameters:    Size  Location     Type
+   273 ;;		None
+   274 ;; Auto vars:     Size  Location     Type
+   275 ;;		None
+   276 ;; Return value:  Size  Location     Type
+   277 ;;                  2    0[BANK0 ] unsigned int 
+   278 ;; Registers used:
+   279 ;;		wreg
+   280 ;; Tracked objects:
+   281 ;;		On entry : 0/0
+   282 ;;		On exit  : 0/0
+   283 ;;		Unchanged: 0/0
+   284 ;; Data sizes:     COMMON   BANK0
+   285 ;;      Params:         0       2
+   286 ;;      Locals:         0       0
+   287 ;;      Temps:          0       1
+   288 ;;      Totals:         0       3
+   289 ;;Total ram usage:        3 bytes
+   290 ;; Hardware stack levels used: 1
+   291 ;; This function calls:
+   292 ;;		Nothing
+   293 ;; This function is called by:
+   294 ;;		_main
+   295 ;; This function uses a non-reentrant model
+   296 ;;
+   297                           
+   298     03C6                     _read_ADC:	
+   299                           ;psect for function _read_ADC
+   300                           
+   301     03C6                     l617:	
+   302                           ;incstack = 0
+   303                           ; Regs used in _read_ADC: [wreg]
+   304                           
+   305                           
+   306                           ;PIC16F676MOTOROPEN.c: 29:             PORTAbits.RA0 = 0;
+   307     03C6  3003               	movlw	3
+   308     03C7  1283               	bcf	3,5	;RP0=0, select bank0
+   309     03C8  00A2               	movwf	??_read_ADC
+   310     03C9                     u67:
+   311     03C9  0BA2               	decfsz	??_read_ADC,f
+   312     03CA  2BC9               	goto	u67
+   313     03CB                     l619:
+   314                           
+   315                           ;PIC16F676MOTOROPEN.c: 30:         }
+   316     03CB  1283               	bcf	3,5	;RP0=0, select bank0
+   317     03CC  149F               	bsf	31,1	;volatile
+   318     03CD                     l30:	
+   319                           ;PIC16F676MOTOROPEN.c: 31: 
+   320                           
+   321     03CD  189F               	btfsc	31,1	;volatile
+   322     03CE  2BD0               	goto	u31
+   323     03CF  2BD1               	goto	u30
+   324     03D0                     u31:
+   325     03D0  2BCD               	goto	l30
+   326     03D1                     u30:
+   327     03D1                     l621:
+   328                           
+   329                           ;PIC16F676MOTOROPEN.c: 32:         _delay((unsigned long)((100)*(4000000/4000.0)));
+   330     03D1  081E               	movf	30,w	;volatile
+   331     03D2  00A1               	movwf	?_read_ADC+1
+   332     03D3  1683               	bsf	3,5	;RP0=1, select bank1
+   333     03D4  081E               	movf	30,w	;volatile
+   334     03D5  1283               	bcf	3,5	;RP0=0, select bank0
+   335     03D6  00A0               	movwf	?_read_ADC
+   336     03D7                     l33:
+   337     03D7  0008               	return
+   338     03D8                     __end_of_read_ADC:
+   339                           
+   340                           	psect	text2
+   341     03BC                     __ptext2:	
+   342 ;; *************** function _init_ADC *****************
+   343 ;; Defined at:
+   344 ;;		line 22 in file "PIC16F676MOTOROPEN.c"
+   345 ;; Parameters:    Size  Location     Type
+   346 ;;		None
+   347 ;; Auto vars:     Size  Location     Type
+   348 ;;		None
+   349 ;; Return value:  Size  Location     Type
+   350 ;;                  1    wreg      void 
+   351 ;; Registers used:
+   352 ;;		wreg
+   353 ;; Tracked objects:
+   354 ;;		On entry : 0/0
+   355 ;;		On exit  : 0/0
+   356 ;;		Unchanged: 0/0
+   357 ;; Data sizes:     COMMON   BANK0
+   358 ;;      Params:         0       0
+   359 ;;      Locals:         0       0
+   360 ;;      Temps:          0       0
+   361 ;;      Totals:         0       0
+   362 ;;Total ram usage:        0 bytes
+   363 ;; Hardware stack levels used: 1
+   364 ;; This function calls:
+   365 ;;		Nothing
+   366 ;; This function is called by:
+   367 ;;		_main
+   368 ;; This function uses a non-reentrant model
+   369 ;;
+   370                           
+   371     03BC                     _init_ADC:	
+   372                           ;psect for function _init_ADC
+   373                           
+   374     03BC                     l615:	
+   375                           ;incstack = 0
+   376                           ; Regs used in _init_ADC: [wreg]
+   377                           
+   378                           
+   379                           ;PIC16F676MOTOROPEN.c: 23:     while (1) {
+   380     03BC  3001               	movlw	1
+   381     03BD  1683               	bsf	3,5	;RP0=1, select bank1
+   382     03BE  0091               	movwf	17	;volatile
+   383                           
+   384                           ;PIC16F676MOTOROPEN.c: 24:         unsigned int sensorValue = read_ADC();
+   385     03BF  3001               	movlw	1
+   386     03C0  1283               	bcf	3,5	;RP0=0, select bank0
+   387     03C1  009F               	movwf	31	;volatile
+   388                           
+   389                           ;PIC16F676MOTOROPEN.c: 25: 
+   390     03C2  3080               	movlw	128
+   391     03C3  1683               	bsf	3,5	;RP0=1, select bank1
+   392     03C4  009F               	movwf	31	;volatile
+   393     03C5                     l27:
+   394     03C5  0008               	return
+   395     03C6                     __end_of_init_ADC:
+   396     005E                     btemp	set	94	;btemp
+   397     005E                     wtemp0	set	94
+   398                           
+   399                           	psect	config
+   400                           
+   401                           ;Config register CONFIG @ 0x2007
+   402                           ;	Oscillator Selection bits
+   403                           ;	FOSC = XT, XT oscillator: Crystal/resonator on RA4/OSC2/CLKOUT and RA5/OSC1/CLKIN
+   404                           ;	Watchdog Timer Enable bit
+   405                           ;	WDTE = OFF, WDT disabled
+   406                           ;	Power-up Timer Enable bit
+   407                           ;	PWRTE = OFF, PWRT disabled
+   408                           ;	RA3/MCLR pin function select
+   409                           ;	MCLRE = OFF, RA3/MCLR pin function is digital I/O, MCLR internally tied to VDD
+   410                           ;	Brown-out Detect Enable bit
+   411                           ;	BOREN = OFF, BOD disabled
+   412                           ;	Code Protection bit
+   413                           ;	CP = OFF, Program Memory code protection is disabled
+   414                           ;	Data Code Protection bit
+   415                           ;	CPD = OFF, Data memory code protection is disabled
+   416     2007                     	org	8199
+   417     2007  3F91               	dw	16273
+
+Data Sizes:
+    Strings     0
+    Constant    0
+    Data        0
+    BSS         0
+    Persistent  0
+    Stack       0
+
+Auto Spaces:
+    Space          Size  Autos    Used
+    COMMON            0      0       0
+    BANK0            62      7       7
+
+Pointer List with Targets:
+
+    None.
+
+Critical Paths under _main in COMMON
+
+    None.
+
+Critical Paths under _main in BANK0
+
+    _main->_read_ADC
+
+Call Graph Tables:
+
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (0) _main                                                 4     4      0      23
+                                              3 BANK0      4     4      0
+                           _init_ADC
+                           _read_ADC
+ ---------------------------------------------------------------------------------
+ (1) _read_ADC                                             3     1      2       0
+                                              0 BANK0      3     1      2
+ ---------------------------------------------------------------------------------
+ (1) _init_ADC                                             0     0      0       0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 1
+ ---------------------------------------------------------------------------------
+
+ Call Graph Graphs:
+
+ _main (ROOT)
+   _init_ADC
+   _read_ADC
+
+ Address spaces:
+Name               Size   Autos  Total    Cost      Usage
+BITCOMMON            0      0       0       0        0.0%
+EEDATA              80      0       0       0        0.0%
+NULL                 0      0       0       0        0.0%
+CODE                 0      0       0       0        0.0%
+BITSFR0              0      0       0       1        0.0%
+SFR0                 0      0       0       1        0.0%
+COMMON               0      0       0       1        0.0%
+BITSFR1              0      0       0       2        0.0%
+SFR1                 0      0       0       2        0.0%
+STACK                0      0       0       2        0.0%
+BITBANK0            3E      0       0       3        0.0%
+BANK0               3E      7       7       4       11.3%
+ABS                  0      0       0       5        0.0%
+DATA                 0      0       0       6        0.0%
+
+
+Microchip Technology PIC Macro Assembler V2.45 build 20230818022343 
+Symbol Table                                                                                   Thu May 23 12:08:18 2024
+
+                     l30 03CD                       l33 03D7                       l27 03C5  
+                     l39 03F1                       u30 03D1                       u31 03D0  
+                     u40 03EF                       u41 03EE                       u57 03F6  
+                     u67 03C9                      l621 03D1                      l615 03BC  
+                    l631 03DE                      l617 03C6                      l641 03F2  
+                    l633 03DF                      l625 03D8                      l619 03CB  
+                    l635 03E0                      l627 03DB                      l637 03E6  
+                    l629 03DC                      l639 03EF                     _main 03D8  
+                   btemp 005E                     start 0000                    ?_main 0020  
+                  _ANSEL 0091                    _PORTA 0005                    _PORTC 0007  
+                  _TRISA 0085                    _TRISC 0087                    status 0003  
+                  wtemp0 005E          __initialization 03FD             __end_of_main 03FD  
+                 ??_main 0023                   _ADCON0 001F                   _ADCON1 009F  
+                 _ADRESH 001E                   _ADRESL 009E         __end_of_init_ADC 03C6  
+       __end_of_read_ADC 03D8  __end_of__initialization 03FD           __pcstackCOMMON 0000  
+             __pmaintext 03D8                ?_init_ADC 0020                ?_read_ADC 0020  
+                __ptext1 03C6                  __ptext2 03BC     end_of_initialization 03FD  
+             ??_init_ADC 0000               ??_read_ADC 0022                _PORTAbits 0005  
+    start_initialization 03FD                ___latbits 0000            __pcstackBANK0 0020  
+             _ADCON0bits 001F                 _init_ADC 03BC                 _read_ADC 03C6  
+        main@sensorValue 0025  

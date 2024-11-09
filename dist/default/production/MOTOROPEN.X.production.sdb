@@ -1,0 +1,86 @@
+[p GLOBOPT AUTOSTATIC IEEE_DBL IEEE_FLT PIC14 PICREGULAR PICMID ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F676 ]
+[d frameptr 0 ]
+"10 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"4 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\Umul8_16.c
+[v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
+"6 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\pic\__eeprom.c
+[v ___eecpymem __eecpymem `(v  1 e 1 0 ]
+"39
+[v ___memcpyee __memcpyee `(v  1 e 1 0 ]
+"22 D:\MOTOROPEN.X\PIC16F676MOTOROPEN.c
+[v _init_ADC init_ADC `(v  1 e 1 0 ]
+"28
+[v _read_ADC read_ADC `(ui  1 e 2 0 ]
+"35
+[v _main main `(v  1 e 1 0 ]
+"166 C:/Users/aswin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f676.h
+[v _PORTA PORTA `VEuc  1 e 1 @5 ]
+[s S81 . 1 `uc 1 RA0 1 0 :1:0 
+`uc 1 RA1 1 0 :1:1 
+`uc 1 RA2 1 0 :1:2 
+`uc 1 RA3 1 0 :1:3 
+`uc 1 RA4 1 0 :1:4 
+`uc 1 RA5 1 0 :1:5 
+]
+"181
+[u S88 . 1 `S81 1 . 1 0 ]
+[v _PORTAbits PORTAbits `VES88  1 e 1 @5 ]
+"216
+[v _PORTC PORTC `VEuc  1 e 1 @7 ]
+"557
+[v _ADRESH ADRESH `VEuc  1 e 1 @30 ]
+"564
+[v _ADCON0 ADCON0 `VEuc  1 e 1 @31 ]
+[s S31 . 1 `uc 1 ADON 1 0 :1:0 
+`uc 1 GO_nDONE 1 0 :1:1 
+`uc 1 CHS 1 0 :3:2 
+`uc 1 . 1 0 :1:5 
+`uc 1 VCFG 1 0 :1:6 
+`uc 1 ADFM 1 0 :1:7 
+]
+"594
+[s S38 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GO 1 0 :1:1 
+`uc 1 CHS0 1 0 :1:2 
+`uc 1 CHS1 1 0 :1:3 
+`uc 1 CHS2 1 0 :1:4 
+]
+[s S44 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 nDONE 1 0 :1:1 
+]
+[s S47 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GO_DONE 1 0 :1:1 
+]
+[u S50 . 1 `S31 1 . 1 0 `S38 1 . 1 0 `S44 1 . 1 0 `S47 1 . 1 0 ]
+[v _ADCON0bits ADCON0bits `VES50  1 e 1 @31 ]
+"731
+[v _TRISA TRISA `VEuc  1 e 1 @133 ]
+"781
+[v _TRISC TRISC `VEuc  1 e 1 @135 ]
+"973
+[v _ANSEL ANSEL `VEuc  1 e 1 @145 ]
+"1371
+[v _ADRESL ADRESL `VEuc  1 e 1 @158 ]
+"1378
+[v _ADCON1 ADCON1 `VEuc  1 e 1 @159 ]
+"35 D:\MOTOROPEN.X\PIC16F676MOTOROPEN.c
+[v _main main `(v  1 e 1 0 ]
+{
+"44
+[v main@sensorValue sensorValue `ui  1 a 2 5 ]
+"54
+} 0
+"28
+[v _read_ADC read_ADC `(ui  1 e 2 0 ]
+{
+"33
+} 0
+"22
+[v _init_ADC init_ADC `(v  1 e 1 0 ]
+{
+"26
+} 0
